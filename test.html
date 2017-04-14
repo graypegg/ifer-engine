@@ -1,0 +1,16 @@
+<html>
+<head>
+  <title>Testing Ifer</title>
+  <script src="./lib/Ifer.js"></script>
+  <script src="./test/sample.ifer.js"></script>
+</head>
+<body>
+  <div id="mount"></div>
+
+  <script>
+    var ifer = new Ifer(sample)
+    ifer._mount(document.querySelector('#mount'))
+    console.log(ifer)
+  </script>
+</body>
+</html>

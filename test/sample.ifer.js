@@ -1,4 +1,4 @@
-module.exports = {
+let sample = {
   state: {
     character: {
       name: String,

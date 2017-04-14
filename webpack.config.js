@@ -5,7 +5,7 @@ const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin
 const path = require('path')
 const env = require('yargs').argv.env
 
-let libraryName = 'Library'
+let libraryName = 'Ifer'
 
 let plugins = [], outputFile
 
@@ -37,6 +37,10 @@ const config = {
         test: /(\.jsx|\.js)$/,
         loader: 'eslint-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /(\.html)$/,
+        loader: 'html-loader'
       }
     ]
   },
