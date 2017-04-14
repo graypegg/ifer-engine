@@ -28,5 +28,8 @@
     "yargs": "6.6.0"
   },
   "author": "Toish <toish@toi.sh>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^2.2.6"
+  }
 }

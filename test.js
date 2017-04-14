@@ -1,5 +1,6 @@
 var sample = require('./test/sample.ifer.js')
 var Ifer = require('.')
 
-var story = new Ifer(sample)
-console.log(story.scenes.start.fire('_advance'))
+var ifer = new Ifer(sample)
+ifer._mount({})
+console.log(ifer)
