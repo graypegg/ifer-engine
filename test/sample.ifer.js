@@ -10,14 +10,14 @@ module.exports = {
       type: 'info',
       name: 'Start',
       display: (state) => `This is the start!`,
-      events: { _advance (ifer) { ifer.load('createChar') } },
+      events: { _advance (ifer) { ifer.load(ifer.scenes.createChar) } },
       ui: []
     },
     'createChar': {
       type: 'info',
       name: 'Create Character',
       display: (state) => `Please fill out the details`,
-      events: { _advance (ifer) { ifer.load('display') } },
+      events: { _advance (ifer) { ifer.load(ifer.scenes.display) } },
       ui: [
         {
           type: 'textbox',

@@ -9,5 +9,11 @@ export default class IferEngine {
         this.scenes[sceneUID] = new Scene(this, sceneUID, story.scenes[sceneUID])
       }
     }
+
+    // Create State
+  }
+
+  load (scene) {
+    console.log('I would be loading ' + scene.name + ' right now.')
   }
 }
