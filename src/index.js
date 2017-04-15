@@ -16,6 +16,12 @@ export default class IferEngine {
     // Initiate some values
     this.scene = this.scenes[this.story.config.firstScene]
     this.ui = null
+
+    // State flags
+    this.flags = {
+      mounted: false,
+      started: false
+    }
   }
 
   /*
@@ -23,11 +29,14 @@ export default class IferEngine {
    * These should be prefixed with a _
    */
 
-  _mount (el) { this.ui = new UI(el) }
+  _mount (el) {
+    this.ui = new UI(el)
+    this.flags.mounted = true
+  }
 
   _start () {
-    console.log(this.scene)
     this.ui.load(this.scene)
+    this.flags.started = true
   }
 
   /*

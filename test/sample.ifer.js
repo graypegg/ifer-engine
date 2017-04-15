@@ -1,6 +1,6 @@
 let sample = {
   config: {
-    firstScene: 'createChar'
+    firstScene: 'start'
   },
   state: {
     character: {
