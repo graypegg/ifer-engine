@@ -41,12 +41,16 @@ const config = {
       {
         test: /(\.html)$/,
         loader: 'html-loader'
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       }
     ]
   },
   resolve: {
     modules: [path.resolve('./src'), 'node_modules'],
-    extensions: ['.json', '.js']
+    extensions: ['.json', '.vue', '.js']
   },
   plugins: plugins
 }

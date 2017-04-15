@@ -1,7 +1,7 @@
 import iferError from './error.js'
 
 import Scene from './components/Scene.js'
-import UI from './components/ui/UI.js'
+import UI from './components/ui'
 
 export default class IferEngine {
   constructor (story) {
