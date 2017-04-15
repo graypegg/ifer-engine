@@ -1,3 +1,5 @@
+import iferError from './error.js'
+
 import Scene from './components/Scene.js'
 import UI from './components/ui/UI.js'
 
@@ -35,8 +37,12 @@ export default class IferEngine {
   }
 
   _start () {
-    this.ui.load(this.scene)
-    this.flags.started = true
+    if (this.mounted) {
+      this.ui.load(this.scene)
+      this.flags.started = true
+    } else {
+      iferError.warn('Unmounted Story', 'You can\'t start an ifer instance before it\'s been mounted')
+    }
   }
 
   /*
@@ -45,6 +51,6 @@ export default class IferEngine {
    */
 
   load (scene) {
-    console.log('I would be loading ' + scene.name + ' right now.')
+    if (this.mounted) {}
   }
 }
