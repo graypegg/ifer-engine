@@ -1,8 +1,10 @@
 <template>
   <div class="ifer-engine">
-    <h2>{{ scene.name }}</h2>
-    <p>{{ scene.display(state) }}</p>
-    <ui-element v-for="(element, key) in elements" :key="key" :taxonomy="element" />
+    <h2>{{ scene.name}}</h2>
+    <p>{{ sceneContent }}</p>
+    <div class="controls">
+      <ui-element v-for="(element, key) in elements" :key="key" :taxonomy="element" />
+    </div>
   </div>
 </template>
 
@@ -18,7 +20,14 @@
       }
     },
     computed: {
-      elements () { return (this.scene ? this.scene.ui : []) }
+      elements () { return (this.scene ? this.scene.ui : []) },
+      sceneContent () {
+        if (this.scene && typeof this.scene.display === 'function') {
+          return this.scene.display(this.state)
+        } else {
+          return []
+        }
+      }
     },
     components: { 'ui-element': UIElement }
   }

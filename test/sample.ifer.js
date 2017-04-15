@@ -20,7 +20,7 @@ let sample = {
       type: 'info',
       name: 'Create Character',
       display: (state) => `Please fill out the details`,
-      events: { _advance (ifer) { ifer.load(ifer.scenes.display) } },
+      events: { _advance (ifer) { ifer.load(ifer.scenes.displayInfo) } },
       ui: [
         {
           type: 'textbox',
@@ -48,7 +48,7 @@ let sample = {
         }
       ]
     },
-    'display': {
+    'displayInfo': {
       type: 'info',
       name: 'Display',
       display: (state) => `Hello ${state.character.name}!`,
