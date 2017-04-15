@@ -61,4 +61,8 @@ export default class IferEngine {
       iferError.warn('Unmounted Story', 'You can\'t start an ifer instance before it\'s been mounted')
     }
   }
+
+  quit () {
+    this.ui.unload()
+  }
 }

@@ -1,6 +1,6 @@
 <template>
-  <div class="ifer-engine">
-    <h2>{{ scene.name}}</h2>
+  <div class="ifer-engine" v-if="scene">
+    <h2>{{ scene.name }}</h2>
     <p>{{ sceneContent }}</p>
     <div class="controls">
       <ui-element v-for="(element, key) in elements" :key="key" :taxonomy="element" />
@@ -15,8 +15,8 @@
     name: 'ui-container',
     data () {
       return {
-        scene: {},
-        state: {}
+        scene: null,
+        state: null
       }
     },
     computed: {
@@ -25,7 +25,7 @@
         if (this.scene && typeof this.scene.display === 'function') {
           return this.scene.display(this.state)
         } else {
-          return []
+          return ''
         }
       }
     },

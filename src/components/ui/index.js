@@ -13,7 +13,11 @@ export default class UI {
   }
 
   unload () {
-    this.vm.scene = {}
-    this.vm.state = {}
+    this.vm.scene = null
+    this.vm.state = null
+
+    Vue.nextTick(() => {
+      this.vm.$destroy()
+    })
   }
 }
