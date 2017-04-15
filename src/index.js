@@ -1,8 +1,10 @@
 import Scene from './components/Scene.js'
-import UI from './components/UI.js'
+import UI from './components/ui/UI.js'
 
 export default class IferEngine {
   constructor (story) {
+    this.story = story
+
     // Parse Scenes
     this.scenes = {}
     for (let sceneUID in story.scenes) {
@@ -12,6 +14,7 @@ export default class IferEngine {
     }
 
     // Initiate some values
+    this.scene = this.scenes[this.story.config.firstScene]
     this.ui = null
   }
 
@@ -21,6 +24,11 @@ export default class IferEngine {
    */
 
   _mount (el) { this.ui = new UI(el) }
+
+  _start () {
+    console.log(this.scene)
+    this.ui.load(this.scene)
+  }
 
   /*
    * -- Story API actions --

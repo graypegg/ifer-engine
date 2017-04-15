@@ -1,4 +1,4 @@
-export default (ifer) => {
+export default (ifer, scene) => {
   return {
     'info': {
       ui: [
@@ -6,7 +6,7 @@ export default (ifer) => {
           type: 'button',
           name: '...',
           bind: {
-            click (_1, _2, scene) {
+            click () {
               return scene.fire('_advance')
             }
           }

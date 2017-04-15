@@ -2,7 +2,7 @@ import scenesLoader from '../constants/scene-types.js'
 
 export default class Scene {
   constructor (ifer, uid, scene) {
-    let scenes = scenesLoader(ifer)
+    let scenes = scenesLoader(ifer, this)
 
     this.uid = uid
     this.name = scene.name

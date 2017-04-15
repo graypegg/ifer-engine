@@ -1,4 +1,7 @@
 let sample = {
+  config: {
+    firstScene: 'createChar'
+  },
   state: {
     character: {
       name: String,
