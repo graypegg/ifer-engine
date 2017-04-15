@@ -7,5 +7,13 @@ export default class UI {
     this.vm = new Vue(UIContainer).$mount(el)
   }
 
-  load (scene) { this.vm.elements = scene.ui }
+  load (scene, state) {
+    this.vm.scene = scene
+    this.vm.state = state
+  }
+
+  unload () {
+    this.vm.scene = {}
+    this.vm.state = {}
+  }
 }

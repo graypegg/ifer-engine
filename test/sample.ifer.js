@@ -4,8 +4,8 @@ let sample = {
   },
   state: {
     character: {
-      name: String,
-      height: Number
+      name: "",
+      height: 0
     }
   },
   scenes: {

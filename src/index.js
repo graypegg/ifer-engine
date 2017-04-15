@@ -13,6 +13,9 @@ export default class IferEngine {
       }
     }
 
+    // Create initial state
+    this.state = Object.assign({}, story.state)
+
     // Store global config
     this.config = story.config
 
@@ -39,7 +42,7 @@ export default class IferEngine {
 
   _start () {
     if (this.flags.mounted) {
-      this.ui.load(this.scene)
+      this.ui.load(this.scene, this.state)
       this.flags.started = true
     } else {
       iferError.warn('Unmounted Story', 'You can\'t start an ifer instance before it\'s been mounted')
@@ -53,7 +56,7 @@ export default class IferEngine {
 
   load (scene) {
     if (this.flags.mounted) {
-      this.ui.load(scene)
+      this.ui.load(scene, this.state)
     } else {
       iferError.warn('Unmounted Story', 'You can\'t start an ifer instance before it\'s been mounted')
     }
