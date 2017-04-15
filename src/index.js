@@ -5,8 +5,6 @@ import UI from './components/ui/UI.js'
 
 export default class IferEngine {
   constructor (story) {
-    this.story = story
-
     // Parse Scenes
     this.scenes = {}
     for (let sceneUID in story.scenes) {
@@ -15,8 +13,11 @@ export default class IferEngine {
       }
     }
 
+    // Store global config
+    this.config = story.config
+
     // Initiate some values
-    this.scene = this.scenes[this.story.config.firstScene]
+    this.scene = this.scenes[this.config.firstScene]
     this.ui = null
 
     // State flags
@@ -37,7 +38,7 @@ export default class IferEngine {
   }
 
   _start () {
-    if (this.mounted) {
+    if (this.flags.mounted) {
       this.ui.load(this.scene)
       this.flags.started = true
     } else {
@@ -51,6 +52,10 @@ export default class IferEngine {
    */
 
   load (scene) {
-    if (this.mounted) {}
+    if (this.flags.mounted) {
+      this.ui.load(scene)
+    } else {
+      iferError.warn('Unmounted Story', 'You can\'t start an ifer instance before it\'s been mounted')
+    }
   }
 }
