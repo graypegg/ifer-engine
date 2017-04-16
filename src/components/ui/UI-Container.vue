@@ -24,7 +24,7 @@
       elements () { return (this.scene ? this.scene.ui : []) },
       sceneContent () {
         if (this.scene) {
-          return Mustache.render(this.scene.display, this.state)
+          return Mustache.render(this.scene.display, this.state.data)
         } else {
           return ''
         }

@@ -7,6 +7,18 @@ export default class State {
     return path.split('.').reduce((o, i) => o[i], this.data)
   }
 
+  change (path, value, part) {
+    if (typeof path === 'string') {
+      return this.change(path.split('.'), value, this.data)
+    } else if (path.length === 1) {
+      part[path[0]] = value
+      return part
+    } else {
+      part[path[0]] = this.change(path.slice(1), value, part)
+      return part
+    }
+  }
+
   test (rule) {
     let stateNode = rule[0].split('.').reduce((o, i) => o[i], this.data)
     switch (rule[1]) {

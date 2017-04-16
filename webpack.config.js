@@ -9,7 +9,7 @@ let libraryName = 'Ifer'
 
 let plugins = [
   new webpack.ProvidePlugin({
-    IferError: './error.js'
+    IferError: 'error.js'
   })
 ], outputFile
 

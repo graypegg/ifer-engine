@@ -1,4 +1,5 @@
 import Scene from './components/Scene.js'
+import State from './components/State.js'
 import UI from './components/ui'
 
 export default class IferEngine {
@@ -12,7 +13,7 @@ export default class IferEngine {
     }
 
     // Create initial state
-    this.state = Object.assign({}, story.state)
+    this.state = new State(story.state)
 
     // Store global config
     this.config = story.config
@@ -21,7 +22,7 @@ export default class IferEngine {
     this.scene = this.scenes[this.config.firstScene]
     this.ui = null
 
-    // State flags
+    // Root State flags
     this.flags = {
       mounted: false,
       started: false
