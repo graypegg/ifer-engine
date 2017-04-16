@@ -63,10 +63,14 @@ export default class IferEngine {
       load (obj) {
         // obj { scene: Scene UID } //
         let scene = _ifer.scenes[obj.scene]
-        if (_ifer.flags.mounted) {
-          _ifer.ui.load(scene, _ifer.state)
+        if (scene) {
+          if (_ifer.flags.mounted) {
+            _ifer.ui.load(scene, _ifer.state)
+          } else {
+            IferError.warn('Unmounted Story', 'You can\'t start an ifer instance before it\'s been mounted')
+          }
         } else {
-          IferError.warn('Unmounted Story', 'You can\'t start an ifer instance before it\'s been mounted')
+          IferError.warn('Tried To Load Unregistered Scene', 'Could not find a scene with the UID `' + obj.scene + '`')
         }
       },
       loadIf (rules) {
