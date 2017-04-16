@@ -69,9 +69,16 @@ export default class IferEngine {
           IferError.warn('Unmounted Story', 'You can\'t start an ifer instance before it\'s been mounted')
         }
       },
-      loadIf (arr) {
-        // arr [{ rule: Rule, scene: Scene UID }...] //
-        // for (let branch in arr) {}
+      loadIf (rules) {
+        // rules [{ rule: Rule, scene: Scene UID }...] //
+        for (let branch in rules) {
+          if (_ifer.state.test(rules[branch].rule)) {
+            this.load({ 'scene': rules[branch].scene })
+            return true
+          }
+        }
+        IferError.warn('No base on loadIf action', '')
+        return false
       },
       quit () {
         _ifer.ui.unload()

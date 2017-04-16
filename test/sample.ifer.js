@@ -31,7 +31,7 @@ let sample = {
           "with": [
             {
               "rule": [ "character.name", "=", "Bob Jones" ],
-              "scene": ""
+              "scene": "huh"
             }
           ]
         }

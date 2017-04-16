@@ -20,10 +20,12 @@ export default class State {
   }
 
   test (rule) {
-    let stateNode = rule[0].split('.').reduce((o, i) => o[i], this.data)
+    console.log(rule)
+    let stateNode = this.find(rule[0])
+    console.log(stateNode)
     switch (rule[1]) {
       case '=':
-        return stateNode === rule[3]
+        return stateNode === rule[2]
       default:
         IferError.warn('Unknown State Comparison', 'Tried to run the comparison `' + rule[0] + ' ' + rule[1] + ' ' + rule[2] + '`. I don\'t know what ' + rule[1] + ' means.')
         return false
