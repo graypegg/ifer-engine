@@ -4,7 +4,7 @@ let sample = {
   },
   state: {
     character: {
-      name: "Bob Jones",
+      name: 'Bob Jones',
       height: 4
     }
   },
@@ -12,7 +12,7 @@ let sample = {
     'start': {
       type: 'info',
       name: 'Start',
-      display: (state) => `This is the start!`,
+      display: 'This is the start!',
       events: {
         _advance: {
           run: 'load',
@@ -24,7 +24,7 @@ let sample = {
     'createChar': {
       type: 'info',
       name: 'Create Character',
-      display: (state) => `Please fill out the details`,
+      display: 'Please fill out the details',
       events: {
         _advance: {
           run: 'load',
@@ -47,7 +47,7 @@ let sample = {
     'displayInfo': {
       type: 'info',
       name: 'Display',
-      display: (state) => `Hello ${state.character.name}!`,
+      display: 'Hello {{character.name}}!',
       events: {
         _advance: {
           run: 'quit'

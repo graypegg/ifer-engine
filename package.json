@@ -31,6 +31,7 @@
   "author": "Toish <toish@toi.sh>",
   "license": "MIT",
   "dependencies": {
+    "mustache": "^2.3.0",
     "vue": "^2.2.6",
     "vue-loader": "^11.3.4",
     "vue-template-compiler": "^2.2.6"
