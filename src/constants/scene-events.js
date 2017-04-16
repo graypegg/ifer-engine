@@ -20,7 +20,6 @@ export default {
         indexPath(tempState, element.taxonomy.bind, element.value)
       }
     })
-    console.log(tempState)
   },
   _load (ifer, scene) {
     // Update all bound UI-Elements with current state data

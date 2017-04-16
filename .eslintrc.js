@@ -11,6 +11,10 @@ module.exports = {
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: 'standard',
+  // Globals
+  'globals': {
+    'IferError': true
+  },
   // add your custom rules here
   'rules': {
     // allow paren-less arrow functions

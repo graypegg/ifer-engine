@@ -21,7 +21,7 @@ export default class Scene {
 
     if (this.events[event]) {
       if (this.events[event].with !== undefined) {
-        this._ifer.api[this.events[event].run](...this.events[event].with)
+        this._ifer.api[this.events[event].run](this.events[event].with)
       } else {
         this._ifer.api[this.events[event].run]()
       }

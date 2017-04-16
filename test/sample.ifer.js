@@ -16,9 +16,7 @@ let sample = {
       "events": {
         "_advance": {
           "run": "load",
-          "with": [
-            "createChar"
-          ]
+          "with": { "scene": "createChar" }
         }
       },
       "ui": []
@@ -29,9 +27,12 @@ let sample = {
       "display": "Please fill out the details",
       "events": {
         "_advance": {
-          "run": "load",
+          "run": "loadIf",
           "with": [
-            "displayInfo"
+            {
+              "rule": [ "character.name", "=", "Bob Jones" ],
+              "scene": ""
+            }
           ]
         }
       },
@@ -58,6 +59,27 @@ let sample = {
         }
       },
       "ui": []
+    },
+    "huh": {
+      "type": "info",
+      "name": "Branch",
+      "display": "Branched!",
+      "events": {
+        "_advance": {
+          "run": "quit"
+        },
+        "goBack": {
+          "run": "load",
+          "with": { "scene": "createChar" }
+        }
+      },
+      "ui": [
+        {
+          "type": "button",
+          "name": "Back",
+          "click": "goBack"
+        }
+      ]
     }
   }
 }

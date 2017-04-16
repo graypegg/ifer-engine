@@ -7,7 +7,11 @@ const env = require('yargs').argv.env
 
 let libraryName = 'Ifer'
 
-let plugins = [], outputFile
+let plugins = [
+  new webpack.ProvidePlugin({
+    IferError: './error.js'
+  })
+], outputFile
 
 if (env === 'build') {
   plugins.push(new UglifyJsPlugin({ minimize: true }))
