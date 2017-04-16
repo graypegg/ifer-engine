@@ -2,10 +2,52 @@ let sample = {
   "config": {
     "firstScene": "start"
   },
+  "objects": {
+    "apple": {
+      "name": "Apple",
+      "actions": {
+        "eat": {
+          "run": "loadIf",
+          "with": [
+            {
+              "rule": [ "character.hunger", ">", 4 ],
+              "scene": "eatApple"
+            },
+            {
+              "rule": "otherwise",
+              "scene": "eatAppleNotHungry"
+            }
+          ]
+        }
+      },
+      "scenes": {
+        "eatApple": {
+          "type": "info",
+          "name": "You ate the apple",
+          "display": "Tasted like an apple.",
+          "events": {
+            "_advance": {
+              "run": "return"
+            }
+          }
+        },
+        "eatAppleNotHungry": {
+          "type": "info",
+          "name": "You didn't ate the apple",
+          "display": "You're not hungry enough, your hunger is {{ character.hunger }}",
+          "events": {
+            "_advance": {
+              "run": "return"
+            }
+          }
+        }
+      }
+    }
+  },
   "state": {
     "character": {
       "name": "Bob Jones",
-      "height": 4
+      "hunger": 4
     }
   },
   "scenes": {
@@ -35,7 +77,7 @@ let sample = {
             },
             {
               "rule": "otherwise",
-              "scene": "display"
+              "scene": "displayInfo"
             }
           ]
         }
@@ -48,8 +90,8 @@ let sample = {
         },
         {
           "type": "slider",
-          "name": "Height",
-          "bind": "character.height"
+          "name": "Hunger",
+          "bind": "character.hunger"
         }
       ]
     },
@@ -59,7 +101,8 @@ let sample = {
       "display": "Hello {{character.name}}!",
       "events": {
         "_advance": {
-          "run": "quit"
+          "run": "load",
+          "with": { "scene": "appleScene" }
         }
       },
       "ui": []
@@ -84,6 +127,16 @@ let sample = {
           "click": "goBack"
         }
       ]
+    },
+    "appleScene": {
+      "type": "in world",
+      "name": "Testing Objects",
+      "display": "Oh look, an Apple",
+      "objects": {
+        "THE apple": {
+          "is": "apple"
+        }
+      }
     }
   }
 }

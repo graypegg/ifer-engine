@@ -24,6 +24,8 @@ export default class State {
     switch (rule[1]) {
       case '=':
         return stateNode === rule[2]
+      case '>':
+        return stateNode > rule[2]
       default:
         IferError.warn('Unknown State Comparison', 'Tried to run the comparison `' + rule[0] + ' ' + rule[1] + ' ' + rule[2] + '`. I don\'t know what ' + rule[1] + ' means.')
         return false
