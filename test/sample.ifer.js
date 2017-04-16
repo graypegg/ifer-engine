@@ -4,8 +4,8 @@ let sample = {
   },
   state: {
     character: {
-      name: "",
-      height: 0
+      name: "Bob Jones",
+      height: 4
     }
   },
   scenes: {
@@ -35,26 +35,12 @@ let sample = {
         {
           type: 'textbox',
           name: 'Name',
-          bind: {
-            input (textbox, state) {
-              textbox.set(state.character.name || '')
-            },
-            output (textbox, state) {
-              state.character.name = textbox.value
-            }
-          }
+          bind: 'character.name'
         },
         {
           type: 'slider',
           name: 'Height',
-          bind: {
-            input (slider, state) {
-              slider.set(state.character.height || 0)
-            },
-            output (slider, state) {
-              state.character.height = slider.value
-            }
-          }
+          bind: 'character.height'
         }
       ]
     },

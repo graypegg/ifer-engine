@@ -8,7 +8,7 @@
 
     <!-- Button -->
     <div v-if="taxonomy.type === 'button'" class="ui-element button">
-      <button @click="taxonomy.bind.click">{{ taxonomy.name }}</button>
+      <button @click="click">{{ taxonomy.name }}</button>
     </div>
 
     <!-- Slider (range) input -->
@@ -30,6 +30,19 @@
     data () {
       return {
         value: null
+      }
+    },
+    methods: {
+      click () {
+        if (this.taxonomy.click) {
+          console.log('yay')
+          this.$parent.scene.fire(this.taxonomy.click)
+        }
+      }
+    },
+    computed: {
+      isBound () {
+        return this.taxonomy.bind !== undefined
       }
     }
   }

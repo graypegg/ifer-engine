@@ -5,11 +5,7 @@ export default (ifer, scene) => {
         {
           type: 'button',
           name: '...',
-          bind: {
-            click () {
-              return scene.fire('_advance')
-            }
-          }
+          click: '_advance'
         }
       ]
     }

@@ -49,6 +49,10 @@ export default class IferEngine {
     }
   }
 
+  _update (state) {
+    this.state = state
+  }
+
   /*
    * -- Story API actions --
    * These should NOT be prefixed with a _
@@ -57,9 +61,10 @@ export default class IferEngine {
   get api () {
     let _ifer = this
     return {
-      load (scene) {
+      load (sceneUID) {
+        let scene = _ifer.scenes[sceneUID]
         if (_ifer.flags.mounted) {
-          _ifer.ui.load(_ifer.scenes[scene], _ifer.state)
+          _ifer.ui.load(scene, _ifer.state)
         } else {
           iferError.warn('Unmounted Story', 'You can\'t start an ifer instance before it\'s been mounted')
         }

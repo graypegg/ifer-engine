@@ -1,4 +1,5 @@
 import scenesLoader from '../constants/scene-types.js'
+import sceneEvents from '../constants/scene-events.js'
 
 export default class Scene {
   constructor (ifer, uid, scene) {
@@ -14,6 +15,10 @@ export default class Scene {
   }
 
   fire (event) {
+    if (event in sceneEvents) {
+      sceneEvents[event](this._ifer, this._ifer.ui, this, this._ifer.state)
+    }
+
     if (this.events[event]) {
       if (this.events[event].with !== undefined) {
         this._ifer.api[this.events[event].run](...this.events[event].with)
