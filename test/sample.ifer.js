@@ -1,59 +1,63 @@
 let sample = {
-  config: {
-    firstScene: 'start'
+  "config": {
+    "firstScene": "start"
   },
-  state: {
-    character: {
-      name: 'Bob Jones',
-      height: 4
+  "state": {
+    "character": {
+      "name": "Bob Jones",
+      "height": 4
     }
   },
-  scenes: {
-    'start': {
-      type: 'info',
-      name: 'Start',
-      display: 'This is the start!',
-      events: {
-        _advance: {
-          run: 'load',
-          with: ['createChar']
+  "scenes": {
+    "start": {
+      "type": "info",
+      "name": "Start",
+      "display": "This is the start!",
+      "events": {
+        "_advance": {
+          "run": "load",
+          "with": [
+            "createChar"
+          ]
         }
       },
-      ui: []
+      "ui": []
     },
-    'createChar': {
-      type: 'info',
-      name: 'Create Character',
-      display: 'Please fill out the details',
-      events: {
-        _advance: {
-          run: 'load',
-          with: ['displayInfo']
+    "createChar": {
+      "type": "info",
+      "name": "Create Character",
+      "display": "Please fill out the details",
+      "events": {
+        "_advance": {
+          "run": "load",
+          "with": [
+            "displayInfo"
+          ]
         }
       },
-      ui: [
+      "ui": [
         {
-          type: 'textbox',
-          name: 'Name',
-          bind: 'character.name'
+          "type": "textbox",
+          "name": "Name",
+          "bind": "character.name"
         },
         {
-          type: 'slider',
-          name: 'Height',
-          bind: 'character.height'
+          "type": "slider",
+          "name": "Height",
+          "bind": "character.height"
         }
       ]
     },
-    'displayInfo': {
-      type: 'info',
-      name: 'Display',
-      display: 'Hello {{character.name}}!',
-      events: {
-        _advance: {
-          run: 'quit'
+    "displayInfo": {
+      "type": "info",
+      "name": "Display",
+      "display": "Hello {{character.name}}!",
+      "events": {
+        "_advance": {
+          "run": "quit"
         }
       },
-      ui: []
+      "ui": []
     }
   }
 }
