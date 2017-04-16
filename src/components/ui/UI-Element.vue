@@ -35,7 +35,6 @@
     methods: {
       click () {
         if (this.taxonomy.click) {
-          console.log('yay')
           this.$parent.scene.fire(this.taxonomy.click)
         }
       }

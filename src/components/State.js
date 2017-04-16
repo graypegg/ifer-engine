@@ -20,9 +20,7 @@ export default class State {
   }
 
   test (rule) {
-    console.log(rule)
     let stateNode = this.find(rule[0])
-    console.log(stateNode)
     switch (rule[1]) {
       case '=':
         return stateNode === rule[2]
