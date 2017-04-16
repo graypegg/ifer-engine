@@ -12,21 +12,21 @@ function indexPath (obj, is, value) {
 }
 
 export default {
-  _advance (ifer, ui, scene, state) {
+  _advance (ifer, scene) {
     // Update all bound state data with new data from scene
-    let tempState = Object.assign({}, state)
-    ui._vm.$children.forEach((element) => {
+    let tempState = Object.assign({}, ifer.state)
+    ifer.ui._vm.$children.forEach((element) => {
       if (element.isBound) {
         indexPath(tempState, element.taxonomy.bind, element.value)
       }
     })
     console.log(tempState)
   },
-  _load (ifer, ui, scene, state) {
+  _load (ifer, scene) {
     // Update all bound UI-Elements with current state data
-    ui._vm.$children.forEach((element) => {
+    ifer.ui._vm.$children.forEach((element) => {
       if (element.isBound) {
-        var node = element.taxonomy.bind.split('.').reduce((o, i) => o[i], state)
+        var node = element.taxonomy.bind.split('.').reduce((o, i) => o[i], ifer.state)
         element.value = node
       }
     })

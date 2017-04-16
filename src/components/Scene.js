@@ -16,7 +16,7 @@ export default class Scene {
 
   fire (event) {
     if (event in sceneEvents) {
-      sceneEvents[event](this._ifer, this._ifer.ui, this, this._ifer.state)
+      sceneEvents[event](this._ifer, this)
     }
 
     if (this.events[event]) {

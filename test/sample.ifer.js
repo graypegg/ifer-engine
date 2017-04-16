@@ -25,7 +25,7 @@ let sample = {
     },
     "createChar": {
       "type": "info",
-      "name": "Create Character",
+      "name": "UI Test",
       "display": "Please fill out the details",
       "events": {
         "_advance": {
