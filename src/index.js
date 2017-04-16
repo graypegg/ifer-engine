@@ -1,5 +1,6 @@
 import Scene from './components/Scene.js'
 import State from './components/State.js'
+import Thing from './components/Thing.js'
 import UI from './components/ui'
 
 export default class IferEngine {
@@ -9,6 +10,23 @@ export default class IferEngine {
     for (let sceneUID in story.scenes) {
       if (story.scenes.hasOwnProperty(sceneUID)) {
         this.scenes[sceneUID] = new Scene(this, sceneUID, story.scenes[sceneUID])
+      }
+    }
+
+    // Parse Things
+    this.things = {}
+    for (let thingUID in story.things) {
+      if (story.things.hasOwnProperty(thingUID)) {
+        this.things[thingUID] = new Thing(this, thingUID, story.things[thingUID])
+
+        // If thing's definition contains scenes, add them to the scenes object
+        if ('scenes' in story.things[thingUID]) {
+          for (let sceneUID in story.things[thingUID].scenes) {
+            if (story.scenes.hasOwnProperty(sceneUID)) {
+              this.scenes[sceneUID] = new Scene(this, sceneUID, story.objects[thingUID].scenes[sceneUID])
+            }
+          }
+        }
       }
     }
 

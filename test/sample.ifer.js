@@ -2,7 +2,7 @@ let sample = {
   "config": {
     "firstScene": "start"
   },
-  "objects": {
+  "things": {
     "apple": {
       "name": "Apple",
       "actions": {

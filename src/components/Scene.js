@@ -9,7 +9,11 @@ export default class Scene {
     this.name = scene.name
     this.display = scene.display
     this.events = scene.events
-    this.ui = scene.ui.concat(scenes[scene.type].ui)
+    if (scene.ui) {
+      this.ui = scene.ui.concat(scenes[scene.type] ? scenes[scene.type].ui : {})
+    } else {
+      this.ui = scenes[scene.type] ? scenes[scene.type].ui : {}
+    }
 
     this._ifer = ifer
   }
