@@ -54,15 +54,21 @@ export default class IferEngine {
    * These should NOT be prefixed with a _
    */
 
-  load (scene) {
-    if (this.flags.mounted) {
-      this.ui.load(scene, this.state)
-    } else {
-      iferError.warn('Unmounted Story', 'You can\'t start an ifer instance before it\'s been mounted')
+  get api () {
+    let _ifer = this
+    return {
+      load (scene) {
+        if (_ifer.flags.mounted) {
+          _ifer.ui.load(_ifer.scenes[scene], _ifer.state)
+        } else {
+          iferError.warn('Unmounted Story', 'You can\'t start an ifer instance before it\'s been mounted')
+        }
+      },
+      quit () {
+        _ifer.ui.unload()
+        _ifer.flags.started = false
+        _ifer.flags.mounted = false
+      }
     }
-  }
-
-  quit () {
-    this.ui.unload()
   }
 }

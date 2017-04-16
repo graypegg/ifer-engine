@@ -13,14 +13,24 @@ let sample = {
       type: 'info',
       name: 'Start',
       display: (state) => `This is the start!`,
-      events: { _advance (ifer) { ifer.load(ifer.scenes.createChar) } },
+      events: {
+        _advance: {
+          run: 'load',
+          with: ['createChar']
+        }
+      },
       ui: []
     },
     'createChar': {
       type: 'info',
       name: 'Create Character',
       display: (state) => `Please fill out the details`,
-      events: { _advance (ifer) { ifer.load(ifer.scenes.displayInfo) } },
+      events: {
+        _advance: {
+          run: 'load',
+          with: ['displayInfo']
+        }
+      },
       ui: [
         {
           type: 'textbox',
@@ -52,7 +62,11 @@ let sample = {
       type: 'info',
       name: 'Display',
       display: (state) => `Hello ${state.character.name}!`,
-      events: { _advance (ifer) { ifer.quit() } },
+      events: {
+        _advance: {
+          run: 'quit'
+        }
+      },
       ui: []
     }
   }
