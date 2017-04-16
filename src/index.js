@@ -71,14 +71,25 @@ export default class IferEngine {
       },
       loadIf (rules) {
         // rules [{ rule: Rule, scene: Scene UID }...] //
+        let base = null
         for (let branch in rules) {
-          if (_ifer.state.test(rules[branch].rule)) {
-            this.load({ 'scene': rules[branch].scene })
-            return true
+          if (typeof rules[branch].rule === 'object') {
+            if (_ifer.state.test(rules[branch].rule)) {
+              this.load({ 'scene': rules[branch].scene })
+              return true
+            }
+          } else if (rules[branch].rule === 'otherwise') {
+            base = rules[branch]
           }
         }
-        IferError.warn('No base on loadIf action', '')
-        return false
+
+        if (base) {
+          this.load({ 'scene': base.scene })
+          return true
+        } else {
+          IferError.warn('No base on loadIf action', '')
+          return false
+        }
       },
       quit () {
         _ifer.ui.unload()
