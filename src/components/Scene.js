@@ -14,6 +14,7 @@ export default class Scene {
     } else {
       this.ui = scenes[scene.type] ? scenes[scene.type].ui : {}
     }
+    this.things = scene.things || {}
 
     this._ifer = ifer
   }

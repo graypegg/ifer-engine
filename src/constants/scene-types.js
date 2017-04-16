@@ -8,6 +8,16 @@ export default (ifer, scene) => {
           click: '_advance'
         }
       ]
+    },
+    // TODO: This will have to repeat buttons for all things in the scene with actions...
+    'in world': {
+      ui: [
+        {
+          type: 'button',
+          name: '...',
+          click: '_advance'
+        }
+      ]
     }
   }
 }

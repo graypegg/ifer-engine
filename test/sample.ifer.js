@@ -132,7 +132,7 @@ let sample = {
       "type": "in world",
       "name": "Testing Objects",
       "display": "Oh look, an Apple",
-      "objects": {
+      "things": {
         "THE apple": {
           "is": "apple"
         }
