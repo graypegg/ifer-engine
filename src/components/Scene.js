@@ -25,6 +25,8 @@ export default class Scene {
       } else {
         this._ifer.api[this.events[event].run]()
       }
+    } else if (!(event in sceneEvents)) {
+      IferError.warn('Missing Event', 'Tried to fire `' + event + '` on scene `' + this.uid + '`, but the event was available.')
     }
   }
 }
