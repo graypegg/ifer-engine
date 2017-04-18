@@ -136,6 +136,17 @@ let sample = {
         "THE apple": {
           "is": "apple"
         }
+      },
+      "paths": {
+        "north": "otherAppleScene"
+      }
+    },
+    "otherAppleScene": {
+      "type": "in world",
+      "name": "Testing Objects 2",
+      "display": "Nothing here",
+      "paths": {
+        "south": "otherAppleScene"
       }
     }
   }
